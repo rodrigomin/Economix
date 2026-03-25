@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">EconoMix</string>
+    <string name="title_activity_main">EconoMix</string>
+    <string name="package_name">com.economix.app</string>
+    <string name="custom_url_scheme">com.economix.app</string>
+</resources>

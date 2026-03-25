@@ -70,3 +70,124 @@
     scale: 0.98;
 }
 
+.divCamAbs {
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.camOverlay {
+    position: fixed;
+    top: 0  ;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.6); /* overlay escuro */
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.camContainer {
+  background: #000;
+  padding: 20px;
+}
+
+.radius {
+    border-radius: 25px;
+}
+
+.cam-modal {
+  --height: 100%;
+  --border-radius: 0;
+  --width: 100%;
+    --background: transparent;
+
+}
+
+.camLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* empurra o botão pra baixo */
+  align-items: center;
+  padding: 20px;
+  height: 80%;
+  width: 100%;
+}
+
+.camWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  overflow-y: hidden;
+  background: black;
+}
+
+.toolbar-modal {
+    --background: transparent;
+    --background-color: transparent;
+}
+
+ion-content {
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+.cam-modal ion-content {
+  --background: transparent;
+}
+
+.cam-modal ion-toolbar {
+    --background: transparent;
+    padding: 15px 20px 0px 0px;
+}
+
+
+.footer {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 767px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer ion-title {
+        font-size: 10px;
+        text-align: center;
+        word-break: break-word;   /* Quebra a palavra se precisar */
+        overflow-wrap: break-word; /* Compatibilidade extra */
+        white-space: normal;      /* Permite múltiplas linhas */
+    }
+
+    ion-title, ion-checkbox, ion-col, ion-item, ion-list-header {
+        font-size: 10px;
+        word-break: break-word;   /* Quebra a palavra se precisar */
+        overflow-wrap: break-word; /* Compatibilidade extra */
+        white-space: normal;      /* Permite múltiplas linhas */
+    }
+    ion-item ion-icon {
+        width: 12px;
+        height: 12px;
+        align-items: center;
+    }
+    .container {
+    margin: 0px;
+    padding: 0px;
+    }
+}

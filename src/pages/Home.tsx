@@ -73,7 +73,12 @@ const Home: React.FC = () => {
       if (!videoRef.current || isCameraStarted.current) return
 
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+        const stream = await navigator.mediaDevices.getUserMedia(
+          { video: {
+             facingMode: "environment",
+              width: { ideal: 1280 },
+              height: { ideal: 720 } 
+          } });
         videoRef.current.srcObject = stream
 
         await new Promise<void>(resolve => {

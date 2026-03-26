@@ -12,3 +12,15 @@ Após isso, tudo que o usuário tem que fazer é scanear o código de barra de d
 Este projeto é benéfico tanto para o usuário quanto para os colaboradores, já que é um diferencial no mercado. E quando se trata de um empreendedorismo como este, o que não falta são mercados iguais, portanto, o diferencial da parceria com o nosso aplicativo se torna crucial para a captação de novos clientes.
 
 ---
+
+# Ferramentas Usadas
+
+* Ionic + React
+* Typescript
+* Biblioteca "zxing" - para ler os códigos de barra
+
+---
+
+<p>
+  <img src="./public/favicon.png" width="50"/>
+</p>

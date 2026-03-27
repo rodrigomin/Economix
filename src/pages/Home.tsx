@@ -95,7 +95,6 @@ const Home: React.FC = () => {
       }
     };
 
-    console.log('cu')
     startCamera()
 
     return () => {

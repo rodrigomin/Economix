@@ -3,7 +3,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'com.economix.app',
   appName: 'EconoMix',
-  webDir: 'build'
+  webDir: 'dist'
 };
 
 export default config;

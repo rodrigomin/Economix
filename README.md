@@ -20,10 +20,14 @@ Este projeto é benéfico tanto para o usuário quanto para os colaboradores, j�
 * Biblioteca "zxing" - para ler os códigos de barra
 
 <br>
-
-<p>
-  <img src="./public/favicon.png" width="50"/>
-</p>
+<div align="center">
+  
+| Ionic | React | zxing |
+| :---: | :---: | :---:|
+| <img src="./public/favicon.png" width="50"/> | <img src="./public/React-icon.png" width="50"/> | <img src="./public/barcode.png" width="50"/> 
+ 
+ 
+ </div>
 
 ---
 
@@ -75,5 +79,34 @@ Este projeto é benéfico tanto para o usuário quanto para os colaboradores, j�
   - Conecte seu celular com o modo de Depuração Ligado && Instalação pela depuração (pode ser USB ou Wireless);
     
   - Selecione seu celular e clique em Run;
-    
+
   - Espere instalar o App no celular.
+
+---
+
+# Erros que podem ocorrer
+
+1. Demora na leitura por conta de iluminação e qualidade da câmera;
+2. Também na criação do App para o Android -> É possível que ocorra um erro na versão do SDK (como aconteceu comigo), neste caso vá na pasta (pós npx cap android)
+   
+  ```
+   ~/android/app/build.gradle
+  ```
+
+  E troque
+
+  ```
+  defaultConfig {
+        applicationId "com.economix.app"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion...
+  ```
+
+  por
+
+  ```
+  defaultConfig {
+        applicationId "com.economix.app"
+        minSdkVersion 26
+        targetSdkVersion rootProject.ext.targetSdkVersion...
+  ```

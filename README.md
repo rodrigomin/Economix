@@ -19,8 +19,61 @@ Este projeto é benéfico tanto para o usuário quanto para os colaboradores, j�
 * Typescript
 * Biblioteca "zxing" - para ler os códigos de barra
 
----
+<br>
 
 <p>
   <img src="./public/favicon.png" width="50"/>
 </p>
+
+---
+
+
+# Dependências
+
+* Baixar o Ionic (requer Node e npm)
+
+  ## Windows
+  ```
+  npm i -g @ionic/cli
+  ```
+
+  ## Linux (Ubuntu)
+  
+  ```
+  sudo npm install -g @ionic/cli
+  ```
+
+---
+
+# Setup: PC -> Android
+
+  - Instale o Android Studio;
+    
+  - Instale os SDK's padrão;
+    
+  - Entre na pasta do App;
+    
+  - Rode:
+    
+  ```
+  ionic run build
+  ```
+
+  - Adicione o android com:
+    
+  ```
+  npx cap add android
+  ```
+
+  - Sincronize tudo no Android Studio e depois abra
+    
+  ```
+  npx cap sync
+  npx cap open android
+  ```
+
+  - Conecte seu celular com o modo de Depuração Ligado && Instalação pela depuração (pode ser USB ou Wireless);
+    
+  - Selecione seu celular e clique em Run;
+    
+  - Espere instalar o App no celular.

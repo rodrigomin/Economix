@@ -36,6 +36,11 @@ const Home: React.FC = () => {
   const isCameraStarted = useRef(false)
 
   const [camView, setCamView] = useState<boolean>(false)
+  const [quantView, setQuantView] = useState({
+    bool: false,
+    product: 0,
+    index: 0
+  })
 
   type ProductsObjArr = {
     nome: string,
@@ -151,6 +156,7 @@ const Home: React.FC = () => {
   
   const changeQnt = (index: number, operacao: string) => {
     
+    /* USER PRODUCTS */
     const novosProdutos = userProducts.map((product, i) => {
       if (i === index) {
         let qnt = product.qnt
@@ -160,7 +166,10 @@ const Home: React.FC = () => {
       }
       return product
     });
+
+    
     setProducts(novosProdutos)
+    setQuantView({...quantView, product: novosProdutos[index].qnt})
   }
 
 
@@ -179,9 +188,12 @@ const Home: React.FC = () => {
         </IonHeader>
 
         <IonModal className="cam-modal" isOpen={camView} onDidDismiss={() => setCamView(false)} backdropDismiss={false}>
-            <IonToolbar className='flex row toolbar-background'>
-              <IonIcon icon={close} slot='end' className='interactive' size='large' onClick={() => setCamView(false)}></IonIcon>
-            </IonToolbar>
+            
+            <div className='p-20 flex' style={ { width: '100%', padding: '0px 20px'}}>
+              <IonToolbar className='flex row toolbar-background'>
+                <IonIcon icon={close}slot='end' color='light' className='interactive' size='large' onClick={() => setCamView(false)}></IonIcon>
+              </IonToolbar>
+            </div>
             <div className='camLayout' style={{ backgroundColor: 'transparent'}}>
             <div className='camWrapper flex center col'>
             <video
@@ -194,6 +206,30 @@ const Home: React.FC = () => {
             </div> 
             <IonButton onClick={handleScan} style={{ marginBottom: '20px' }} >Escanear</IonButton>
             </div>
+        </IonModal>
+
+        <IonModal className='cam-modal' isOpen={quantView.bool} onDidDismiss={() => setQuantView({...quantView, bool: true ? false : true })} backdropDismiss={false}>
+          <div className='p-20 flex' style={ { width: '100%', padding: '0px 20px'}}>
+            <IonToolbar className='flex row toolbar-background'>
+              <IonIcon icon={close}slot='end' color='light' className='interactive' size='large' onClick={() => setQuantView({...quantView, bool: false})}></IonIcon>
+            </IonToolbar>
+          </div>
+          <div className='flex col center' style={ { height: '100%'}}>
+            <div className='flex col' style={{ backgroundColor: 'white', padding: '50px', paddingBottom: '65px', gap:'25px', border: 'solid 2px black', borderRadius: '25px', minWidth: '95%'}}>
+              
+              <IonItem className='ion-text-center ion-align-items-center flex center'>
+                <div className='flex row center' style={{width: '100%'}}>
+                  <h1 className='title qnt'> Quantidade/Kg's </h1>
+                </div>
+              </IonItem>
+
+              <div className='flex row center quant-container'>
+                <IonIcon className='interactive' size='large' icon={chevronUpOutline} onClick={() => changeQnt(quantView.index, "mais")}></IonIcon>
+                  <label className='label-product'> {quantView.product} </label>
+                <IonIcon className='interactive' size='large' icon={chevronDownOutline} onClick={() => changeQnt(quantView.index, "menos")}></IonIcon>
+              </div>
+            </div>
+          </div>
         </IonModal>
         
         
@@ -208,19 +244,22 @@ const Home: React.FC = () => {
 
             {userProducts.length >= 1 &&
               <div>
-                <IonGrid>
-                  <IonRow>
-                    <IonCol size='5'> <label style={ { marginLeft: '40px'}}> Nome </label> </IonCol>
-                    <IonCol size='2' className='ion-text-center'> Quantidade/Kg's </IonCol>
-                    <IonCol className='ion-text-end' size='4'> <label style={ { marginRight: '15px'}}> Preço (R$) </label> </IonCol>
-                  </IonRow>
-                </IonGrid>
+                <IonItem lines="none" className='inner-container'>
+                  <IonGrid>
+                    <IonRow className="product ion-align-items-center">
+                      <IonCol size='5'> <label style={ { marginLeft: '40px'}}> Nome </label> </IonCol>
+                      <IonCol size='3' className='ion-text-center'> Quantidade/Kg's </IonCol>
+                      <IonCol className='ion-text-center' size='2'> Preço (R$) </IonCol>
+                      <IonCol></IonCol>
+                    </IonRow>
+                  </IonGrid>
+                </IonItem>
                 {userProducts && userProducts.map((product, index) => (
                   <IonItem key={index} lines="full" className="product inner-container">
                     <IonGrid>
                       <IonRow className="ion-align-items-center">
 
-                        <IonCol size="6">
+                        <IonCol size="5">
                           <IonCheckbox
                             labelPlacement="end"
                             checked={product.checked}
@@ -233,19 +272,17 @@ const Home: React.FC = () => {
                           </IonCheckbox>
                         </IonCol>
 
-                        <IonCol size="3" className="ion-text-center" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                          <IonIcon className='interactive' size='large' icon={chevronUpOutline} onClick={() => changeQnt(index, "mais")}></IonIcon>
-                          <label style={ { margin: '0px 15px'}}> {product.qnt} </label>
-                          <IonIcon className='interactive' size='large' icon={chevronDownOutline} onClick={() => changeQnt(index, "menos")}></IonIcon>
+                        <IonCol size="3" className="ion-text-center" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                          <label className='interactive' style={ { margin: '0px 15px', border: 'solid 1px', color: 'var(--ion-color-secondary)', padding: '5px', borderRadius: '5px'}} onClick={(e) => setQuantView({...quantView, bool: true, product: product.qnt, index: index})}> {product.qnt} </label>
                         </IonCol>
                           
 
-                        <IonCol size="2" className="ion-text-end">
+                        <IonCol size="2" className="ion-text-center">
                           {(product.price * product.qnt).toFixed(2)}
                         </IonCol>
 
                         <IonCol className='ion-text-end'>
-                          <IonIcon className='interactive' size='large' icon={close} onClick={() => setProducts(userProducts.filter(p => p.nome !== product.nome))}></IonIcon>
+                          <IonIcon className='interactive' color='secondary' size='large' icon={close} onClick={() => setProducts(userProducts.filter(p => p.nome !== product.nome))}></IonIcon>
                         </IonCol>
                       </IonRow>
                     </IonGrid>
@@ -271,9 +308,9 @@ const Home: React.FC = () => {
         </IonContent>
 
 
-      <IonFooter className='footer' style={{ padding: '50px', backgroundColor: '#075485' }}>
-        <IonTitle slot='start'> O aplicativo faz apenas uma <span style={{ color: '#3CB74F', textDecoration: 'underline' }}> ESTIMATIVA</span> do preço total </IonTitle>
-        <IonTitle slot='end'> © Todos os Direitos Reservados Rodrigo e Flavio</IonTitle>
+      <IonFooter className='footer' style={{ backgroundColor: '#075485'}}>
+        <IonTitle className='ion-text-center'> O aplicativo faz apenas uma <span style={{ color: '#3CB74F', textDecoration: 'underline' }}> ESTIMATIVA</span> do preço total </IonTitle>
+        <IonTitle className='ion-text-center'> © Todos os Direitos Reservados Rodrigo e Flavio</IonTitle>
       </IonFooter>
     </IonPage>
   );

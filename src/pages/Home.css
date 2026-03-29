@@ -105,12 +105,19 @@
     border-radius: 25px;
 }
 
+.cam-modal .ion-page {
+    justify-content: flex-start
+}
 .cam-modal {
-  --height: 100%;
-  --border-radius: 0;
-  --width: 100%;
+    --height: 100%;
+    --border-radius: 0;
+    --width: 100%;
     --background: transparent;
+}
 
+
+.p-20 {
+    margin-right: 200px;
 }
 
 .camLayout {
@@ -119,7 +126,6 @@
   justify-content: space-between; /* empurra o botão pra baixo */
   align-items: center;
   padding: 20px;
-  height: 80%;
   width: 100%;
 }
 
@@ -127,7 +133,7 @@
   display: flex;
   justify-content: center;
   margin: 20px;
-  height: 100%;
+  height: 70dvh;
   border-radius: 20px;
   overflow: hidden;
   overflow-y: hidden;
@@ -137,13 +143,19 @@
 .toolbar-modal {
     --background: transparent;
     --background-color: transparent;
+    --height: 50px;
 }
+
 
 ion-content {
   --padding-top: 16px;
   --padding-bottom: 16px;
   --padding-start: 16px;
   --padding-end: 16px;
+}
+
+ion-checkbox {
+    --size: 12px
 }
 
 .cam-modal ion-content {
@@ -159,20 +171,53 @@ ion-content {
 .footer {
     display: flex;
     flex-direction: row;
+    padding: 50px 0px;
 }
 
-@media (max-width: 767px) {
+.footer ion-title {
+    position: relative;
+}
+
+@media (max-width: 1210px) {
     .footer {
         display: flex;
         flex-direction: column;
+        box-sizing: content-box;
+        padding: 50px 0px;
     }
 
     .footer ion-title {
+        position: relative;
         font-size: 10px;
-        text-align: center;
         word-break: break-word;   /* Quebra a palavra se precisar */
         overflow-wrap: break-word; /* Compatibilidade extra */
         white-space: normal;      /* Permite múltiplas linhas */
+        padding: 0px;
+    } 
+
+    .label-product {
+        font-size: 150px;
+    }
+
+    .quant-container {
+        gap: 25px;
+    }
+
+    .quant-container ion-icon {
+        width: 200px;
+        height: 100%;
+        border-radius: 25px;
+        background-color: #062538;
+        color: white;
+    }
+
+    .qnt {
+        font-size: 35px;
+    }
+
+    .quant-container label {
+        min-width: 40%;
+        transition: all ease-in-out;
     }
 
     ion-title, ion-checkbox, ion-col, ion-item, ion-list-header {
@@ -182,8 +227,8 @@ ion-content {
         white-space: normal;      /* Permite múltiplas linhas */
     }
     ion-item ion-icon {
-        width: 12px;
-        height: 12px;
+        width: 24px;
+        height: 24px;
         align-items: center;
     }
     .container {

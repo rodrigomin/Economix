@@ -198,7 +198,6 @@ const Home: React.FC = () => {
             <div className='camWrapper flex center col'>
             <video
               ref={videoRef}
-              autoPlay
               muted
               playsInline
               style={{ border: '2px solid black' }}
@@ -215,11 +214,11 @@ const Home: React.FC = () => {
             </IonToolbar>
           </div>
           <div className='flex col center' style={ { height: '100%'}}>
-            <div className='flex col' style={{ backgroundColor: 'white', padding: '50px', paddingBottom: '65px', gap:'25px', border: 'solid 2px black', borderRadius: '25px', minWidth: '95%'}}>
+            <div className='flex col' style={{ backgroundColor: 'white', padding: '50px', paddingBottom: '65px', gap:'25px', border: 'solid 2px black', borderRadius: '25px', width: '95%'}}>
               
               <IonItem className='ion-text-center ion-align-items-center flex center'>
                 <div className='flex row center' style={{width: '100%'}}>
-                  <h1 className='title qnt'> Quantidade/Kg's </h1>
+                  <h1 className='title qnt'> Quant./Kg's </h1>
                 </div>
               </IonItem>
 
@@ -273,7 +272,7 @@ const Home: React.FC = () => {
                         </IonCol>
 
                         <IonCol size="3" className="ion-text-center" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                          <label className='interactive' style={ { margin: '0px 15px', border: 'solid 1px', color: 'var(--ion-color-secondary)', padding: '5px', borderRadius: '5px'}} onClick={(e) => setQuantView({...quantView, bool: true, product: product.qnt, index: index})}> {product.qnt} </label>
+                          <label className='interactive' style={ { margin: '0px 15px', border: 'solid 1px', color: 'var(--ion-color-secondary)', padding: '5px', borderRadius: '5px', minWidth: '25px'}} onClick={(e) => setQuantView({...quantView, bool: true, product: product.qnt, index: index})}> {product.qnt} </label>
                         </IonCol>
                           
 

@@ -72,10 +72,7 @@ Este projeto é benéfico tanto para o usuário quanto para os colaboradores, j�
         <IonTitle slot='end'> © Todos os Direitos Reservados Rodrigo e Flavio</IonTitle>
       </IonFooter>
     </IonPage>
-  );
-};
 
-export default Home;
 </p>
     
 # Ferramentas Usadas

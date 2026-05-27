@@ -1,4 +1,5 @@
-# ECONOMIX: O App que te ajuda a economizar no supermercado!
+# Objetivo 
+ECONOMIX: O App que te ajuda a economizar no supermercado!
 
 <p align="center">
   <img src="./src/assets/econo-logo+text.png" width="300"/>

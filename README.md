@@ -95,7 +95,7 @@ Este projeto é benéfico tanto para o usuário quanto para os colaboradores, j�
 
 
 # Dependências
-  dispositivo físico conectado a uma rede 
+* Dispositivo movel com acesso a internet
 
 * Baixar o Ionic (requer Node e npm)
 
@@ -120,7 +120,7 @@ Este projeto é benéfico tanto para o usuário quanto para os colaboradores, j�
     
   - Entre na pasta do App;
     
-  - Rode:
+  - Execute o código:
     
   ```
   ionic run build
